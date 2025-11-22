@@ -1,0 +1,1 @@
+<?php require_once('views/recover-password/recover-password.php');

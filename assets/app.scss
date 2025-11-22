@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/**********
+* Settings
+***********/
+
+@import "./front/settings";
+@import "./front/colors";
+
+/*Bootstrap 5.3.6*/
+@import "./common-sass/bootstrap/scss/bootstrap";
+
+/*fontawesome-free-6.1.1-web*/
+@import "./common-sass/@fortawesome/fontawesome-free/scss/fontawesome";
+@import "./common-sass/@fortawesome/fontawesome-free/scss/brands";
+@import "./common-sass/@fortawesome/fontawesome-free/scss/regular";
+@import "./common-sass/@fortawesome/fontawesome-free/scss/solid";
+
+/*Owl Carousel v2.3.4*/
+//@import "./common-sass/owl.carousel/src/scss/owl.carousel";
+//@import "./common-sass/owl.carousel/src/scss/owl.theme.default";
+//@import "./common-sass/owl/src/scss/theme.green";
+
+/**********
+* Plugins
+***********/
+/*Animaciones*/
+@import './common-sass/animate.css/animate';
+/*Notificaciones*/
+@import "./common-sass/pnotify/pnotify.custom";
+/*Animaciones css3-animate-it*/
+@import "./common-sass/css3-animate-it-master/css3-animate-it";
+/*Formato lada para los numeros telefonicos*/
+@import "../node_modules/intl-tel-input/src/css/intlTelInput";
+/*Lenis*/
+@import 'lenis/dist/lenis.css';
+
+/**********
+* Site
+***********/
+
+//@import "./front/form";
+
+@import "./front/templates/preloader";
+@import "./front/templates/header";
+@import "./front/templates/footer";
+
+@import "./front/theme";
+
+/**********
+* Page
+***********/
+//@import "./front/pages/home";
+//@import "./front/pages/contact";

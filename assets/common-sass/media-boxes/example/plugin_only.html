@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Plugin Only - Responsive jQuery Grid Plugin | Media Boxes Portfolio</title>
+
+	<link rel="icon" href="img/favicon.ico" type="image/png">
+
+    <meta name="description" content="Plugin Only."/>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<!-- needed for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  	
+  	<!-- Media Boxes CSS files -->
+    <link rel="stylesheet" href="../plugin/components/Font Awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../plugin/components/Magnific Popup/magnific-popup.css"> <!-- only if you use Magnific Popup -->
+    <link rel="stylesheet" href="../plugin/components/Fancybox/jquery.fancybox.min.css"> <!-- only if you use Fancybox -->
+    <link rel="stylesheet" type="text/css" href="../plugin/css/mediaBoxes.css">
+
+    <style>
+        body{
+          margin:0;
+          min-height: 1000px;
+          overflow-y: scroll; 
+        }
+    </style>
+	
+</head>
+<body>
+	
+<!--  ================== FILTERS ================== -->
+	<div class="filters-container">
+	
+		<div class="media-boxes-search">
+            <span class="media-boxes-icon fa fa-search"></span>
+            <input type="text" id="search" placeholder="Search by title">
+            <span class="media-boxes-clear fa fa-close"></span>
+        </div>
+
+		<div class="media-boxes-drop-down" id="sort">
+			<div class="media-boxes-drop-down-header">
+			</div>
+			<ul class="media-boxes-drop-down-menu">
+				<li><a href="#" data-sort-by="original-order" class="selected">Original Order</a></li>
+				<li><a href="#" data-sort-by="title" data-sort-toggle="true">Sort by Title</a></li>
+				<li><a href="#" data-sort-by="year" data-sort-toggle="true">Sort by Year</a></li>
+			</ul>
+		</div>
+
+		<div class="media-boxes-drop-down" id="filter">
+			<div class="media-boxes-drop-down-header">
+			</div>
+			<ul class="media-boxes-drop-down-menu">
+				<li><a class="selected" href="#" data-filter="*">All</a></li>
+				<li><a href="#" data-filter=".category1">Category 1</a></li>
+				<li><a href="#" data-filter=".category2">Category 2</a></li>
+				<li><a href="#" data-filter=".category3">Category 3</a></li>
+				<li><a href="#" data-filter=".category1, .category2">Category 1 and 2</a></li>
+			</ul>
+		</div>
+
+	</div>		
+<!--  ================== END FILTERS ================== -->
+
+
+
+<!--  ================== MEDIA BOXES GRID ================== -->
+	<div id="grid">
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box image" data-columns="2">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-1.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-1.jpg" data-title="Dolor sit amet"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Dolor sit amet</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box video">
+            <div class="media-box-image">
+                <div data-width="240" data-height="168" data-thumbnail="gallery/thumbnails/thumb-58.jpg"></div>
+                
+				<div class="thumbnail-overlay">
+					<i class="fa fa-video-camera mb-open-popup" data-type="iframe" data-src="https://www.youtube.com/watch?v=5guMumPFBag" data-title="Psico dell consecteture"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+				</div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Psico dell consecteture</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box sound">
+            <div class="media-box-image">
+                <div data-width="214" data-height="320" data-thumbnail="gallery/thumbnails/thumb-59.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-headphones mb-open-popup" data-type="iframe" data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/123844205&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&visual=true" data-title="Sed do eiusmod"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Sed do eiusmod</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box video">
+            <div class="media-box-image">
+                <div data-width="320" data-height="213" data-thumbnail="gallery/thumbnails/thumb-4.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-video-camera mb-open-popup" data-type="iframe" data-src="https://www.youtube.com/watch?v=UrIbxk7idYA" data-title="Incididunt ut labore"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Incididunt ut labore</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box sound">
+            <div class="media-box-image">
+                <div data-width="214" data-height="320" data-thumbnail="gallery/thumbnails/thumb-57.jpg"></div>
+
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-headphones mb-open-popup" data-type="iframe" data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/75185296&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" data-title="Et dolore magna"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Et dolore magna</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box video">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-6.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-video-camera mb-open-popup" data-type="iframe" data-src="https://www.youtube.com/watch?v=2zqy21Z29ps" data-title="Enim ad minim"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Enim ad minim</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                	Lorem ipsum dolor sitam psico dell consecteture adipisicing elit 
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+ 
+		<!-- -------------------------- BOX MARKUP -------------------------- -->            
+        <div class="media-box video">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-7.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-video-camera mb-open-popup" data-type="iframe" data-src="http://vimeo.com/22884674" data-title="Nostrud exercitation"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Nostrud exercitation</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box image">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-8.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-8.jpg" data-title="Ullamco laboris"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Ullamco laboris</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box image">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-9.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-9.jpg" data-title="Nisi ut aliquip"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Nisi ut aliquip</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box video">
+            <div class="media-box-image">
+                <div data-width="320" data-height="213" data-thumbnail="gallery/thumbnails/thumb-10.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-video-camera mb-open-popup" data-type="iframe" data-src="https://www.youtube.com/watch?v=KVu3gS7iJu4" data-title="Ex ea commodo"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Ex ea commodo</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico dell consecteture adipisicing.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box image">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-11.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-11.jpg" data-title="Duis aute irure"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Duis aute irure</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+        <div class="media-box sound">
+            <div class="media-box-image">
+                <div data-width="320" data-height="214" data-thumbnail="gallery/thumbnails/thumb-12.jpg"></div>
+                
+                <div class="thumbnail-overlay">
+                  	<i class="fa fa-headphones mb-open-popup" data-type="iframe" data-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/75185291&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true" data-title="Dolor in reprehenderit"></i>
+          			<a href="#"><i class="fa fa-link"></i></a>
+                </div>
+            </div>
+
+            <div class="media-box-content">
+                <div class="media-box-title">Dolor in reprehenderit</div>
+                <div class="media-box-date">December 10, 2013</div>
+                <div class="media-box-text">
+                    Lorem ipsum dolor sitam psico.
+                </div>
+                <div class="media-box-more"> <a href="#">Read more</a> </div>
+            </div>
+        </div>
+
+    </div> <!-- end #grid -->
+
+    <!--  ================== END MEDIA BOXES GRID ================== -->
+
+
+	<!-- jQuery 1.8+ -->
+	<script src="../plugin/components/jQuery/jquery-3.6.0.min.js"></script>
+	
+	<!-- Media Boxes JS files -->
+	<script src="../plugin/components/Isotope/jquery.isotope.min.js"></script>
+	<script src="../plugin/components/imagesLoaded/jquery.imagesLoaded.min.js"></script>
+	<script src="../plugin/components/Transit/jquery.transit.min.js"></script>
+	<script src="../plugin/components/jQuery Easing/jquery.easing.js"></script>
+	<script src="../plugin/components/jQuery Visible/jquery.visible.min.js"></script>
+	<script src="../plugin/components/Modernizr/modernizr.custom.min.js"></script>
+	<script src="../plugin/components/Magnific Popup/jquery.magnific-popup.min.js"></script> <!-- only if you use Magnific Popup -->
+    <script src="../plugin/components/Fancybox/jquery.fancybox.min.js"></script> <!-- only if you use Fancybox -->
+	<script src="../plugin/js/jquery.mediaBoxes.dropdown.js"></script>
+    <script src="../plugin/js/jquery.mediaBoxes.js"></script>
+
+	<!-- Initialize Media Boxes with its settings -->
+	<script>
+
+	    $('#grid').mediaBoxes({
+	    	filterContainer: '#filter',
+	    	search: '#search',
+	    	sortContainer: '#sort',
+	    	getSortData: {
+	          title: '.media-box-title',
+	          year: '.media-box-date parseInt',
+	        },
+	    	boxesToLoadStart: 9,
+	    	boxesToLoad: 10,
+	    	horizontalSpaceBetweenBoxes: 20,
+        	verticalSpaceBetweenBoxes: 20,
+	    });
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?php
+$lang_record = array(
+	"Historial 1" 										=> "Inicio sesión PARA1",
+	"Historial 2" 										=> "PARA1 PARA2 PARA3",
+	"Historial 3" 										=> "PARA1 PARA2",
+	"Historial 4" 										=> "PARA1 PARA2 PARA3 PARA4",
+	"Asunto registro usuario" 							=> "Información del usuario",
+	"Asunto actualización usuario" 						=> "Actualización del usuario",
+	"Asunto confirmacion registro usuario" 				=> "bienvenid@ a ",
+	"Asunto confirmacion actualización usuario" 		=> "Te enviamos tu información actualizada",
+	"Asunto reporte de formulario" 						=> "Reporte",
+	"Asunto usuario nuevo e inactivo" 					=> "Hay un PARA1 nuevo en espera de activación",
+	"Asunto solicitud menu usuario" 					=> "Resumen de su petición a ",
+	"Asunto nueva solicitud informar chefs menu usuario" 				=> "Hay una solicitud nueva que podría interesarte.",
+	"Asunto nueva propuesta menu usuario" 				=> "Tienes una nueva propuesta del chef",
+	"Asunto solicitud cancelada informar chefs menu usuario" 			=> "Solicitud cancelada por el comensal.",
+	"Asunto propuesta cancelada informar chefs menu usuario" 			=> "Propuesta cancelada por el comensal.",
+	"Asunto total de propuestas menu usuario" 			=> "Experiencia gastronómica.",
+	"Asunto reserva prioritaria menu usuario" 			=> "Reserva prioritaria - últimas 24 horas.",
+	"Asunto reserva prioritaria agotada menu usuario" 	=> "Reserva prioritaria agotada - Desbloqueo del chef.",
+	"Asunto reserva prioritaria expirada menu usuario" 	=> "La solicitud expiró.",
+	"Asunto solicitud reservada informar comensal menu usuario" 		=> "Reservación para el PARA1.",
+	"Asunto solicitud reservada informar chef menu usuario" 			=> "Propuesta aprobada y reservada para el PARA1.",
+	"Asunto solicitud ya fue reservada informar chefs menu usuario" 	=> "Solicitud cerrada.",
+
+	"Mensaje enviado, revise su bandeja de entrada" 	=> "Mensaje enviado, revise su bandeja de entrada.",
+	"solicita activar promoción del producto" 			=> "solicita activar promoción del producto",
+	"Cerro sesión" 										=> "Cerro sesión");

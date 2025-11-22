@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiple Filters - Responsive jQuery Grid Plugin | Media Boxes Portfolio</title>
+
+    <link rel="icon" href="img/favicon.ico" type="image/png">
+
+    <meta name="description" content="Make a grid with multiple filters at once."/>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- needed for mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  
+    <!-- Import font -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- Style for Bootstrap -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    
+    <!-- Custom style for the demo-->
+    <link rel="stylesheet" href="css/demo.css">
+    
+    <!-- Media Boxes CSS files -->
+    <link rel="stylesheet" href="../plugin/components/Font Awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../plugin/components/Magnific Popup/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="../plugin/css/mediaBoxes.css">
+
+    <style>
+
+    /* == LETS MODIFY SOME COLORS AND STYLE FOR THE DEMO == */
+
+        /*  The style of the text */
+        .thumbnail-overlay{
+            font-size: 35px;
+            color: white;
+        }
+        
+        /* The different colors */
+        .red .thumbnail-overlay{
+            background: #e74c3c;
+        }
+        .green .thumbnail-overlay{
+            background: #00a78e;
+        }
+        .blue .thumbnail-overlay{
+            background: #4183c4;
+        }
+        
+        /* The different shapes */
+        .round .media-box-container{
+            -webkit-border-radius: 50%;
+               -moz-border-radius: 50%;
+                    border-radius: 50%;
+        }
+        .square .media-box-container{
+            -webkit-border-radius: 0%;
+               -moz-border-radius: 0%;
+                    border-radius: 0%;
+        }
+
+
+        /* Position the filters */
+        .media-boxes-drop-down{
+            float: left;
+            margin-right: 10px;
+        }
+        .media-boxes-search{
+            float: right;
+        }
+
+        /* Hide the "no more entries" button */
+        .media-boxes-no-more-entries{
+            display: none;
+        }
+
+        /* Remove the shadow */
+        .media-box-container{
+          -webkit-box-shadow: none !important;
+             -moz-box-shadow: none !important;
+               -o-box-shadow: none !important;
+              -ms-box-shadow: none !important;
+                  box-shadow: none !important;
+        }
+
+    </style>
+    
+</head>
+<body>
+    
+    <div class="header">
+        <div class="content">
+
+            <!-- Static navbar -->
+            <div class="navbar navbar-default">
+                <div class="container-fluid">
+
+                    <!-- menu project name -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="./"><img class="reverse" src="img/logo.png" alt="Media Boxes" title="Media Boxes"></a>
+                    </div>
+
+                    <!-- menu items -->
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="./">Home</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle selected" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usage Examples <span class="fa fa-chevron-down"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!-- Content container to add padding -->
+                                        <div class="dropdown-menu-content clearfix">
+                                            <ul class="dropdown-menu-column">
+                                                <li><a href="blog_posts.html">Blog Posts</a></li>
+                                                <li><a href="pinterest_style.html">Pinterest Style</a></li>
+                                                <li><a href="media_grid.html">Media Grid</a></li>
+                                                <li><a href="clients.html">Clients</a></li>
+                                                <li><a href="portfolio.html">Portfolio</a></li>
+                                                <li><a href="shop.html">Shop</a></li>
+                                                <li><a href="dark_grid.html">Dark Grid</a></li>
+                                            </ul>
+                                            <ul class="dropdown-menu-column popover-with-margin">
+                                                <li><a href="gallery.html">Masonry Gallery</a></li>
+                                                <li><a href="full_width_gallery.html">Full Width Gallery</a></li>
+                                                <li><a class="selected" href="multiple_filters.html">Multiple Filters</a></li>
+                                                <li><a href="multiple_grids.html">Multiple Grids</a></li>
+                                                <li><a href="circular_fun.html">Circular Fun</a></li>
+                                                <li><a href="overlay_effects.html">Overlay Effects</a></li>
+                                                <li><a href="popup_content.html">Popup Content</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="https://codecanyon.net/item/wp-media-boxes-portfolio-responsive-wordpress-grid-plugin/22881148" target="blank">Wordpress Version</a>
+                            </li>
+                            <li>
+                                <a href="http://codecanyon.net/item/media-boxes-responsive-jquery-grid/5683020" target="_blank">Buy Now</a>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!--/.container-fluid -->
+            </div>
+    
+        </div>
+    </div>
+    
+    <div class="grid-section">
+
+        <div class="headline">
+            <h2>MULTIPLE <strong>FILTERS</strong></h2>
+
+            <p>
+                Apply multiple filters at once.
+            </p>
+        </div>
+
+        <div class="content grid-container">
+
+        <!--  ================== MEDIA BOXES ================== -->
+
+        <div class="filters-container">
+
+            <div class="media-boxes-checkboxes">
+                <label class="media-boxes-checkboxes-label">Red
+                    <input type="checkbox" class="filters" data-filter=".red" data-id="red">
+                    <span class="media-boxes-checkboxes-checkmark"></span>
+                </label>
+
+                <label class="media-boxes-checkboxes-label">Green
+                    <input type="checkbox" class="filters" data-filter=".green" data-id="green">
+                    <span class="media-boxes-checkboxes-checkmark"></span>
+                </label>
+                
+                <label class="media-boxes-checkboxes-label">Round
+                    <input type="checkbox" class="filters" data-filter=".round" data-id="round">
+                    <span class="media-boxes-checkboxes-checkmark"></span>
+                </label>
+
+                <label class="media-boxes-checkboxes-label">Square
+                    <input type="checkbox" class="filters" data-filter=".square" data-id="square">
+                    <span class="media-boxes-checkboxes-checkmark"></span>
+                </label>
+            </div>
+
+        </div>
+
+        <div id="grid">
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red round letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            A
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green square letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            Z
+                        </div>
+                    </div>
+                </div>
+
+              
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box blue round symbol">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            +
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red square number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            4
+                        </div>
+                    </div>
+                </div>
+             
+              
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green round number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            2
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box blue square number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            9
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red round symbol">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            %
+                        </div>
+                    </div>
+                </div>
+                
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green square letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            D
+                        </div>
+                    </div>
+                </div>
+         
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box blue round letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            N
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red square symbol">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            &
+                        </div>
+                    </div>
+                </div>
+         
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green round number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            4
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box blue square number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            8
+                        </div>
+                    </div>
+                </div>
+         
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red round letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            E
+                        </div>
+                    </div>
+                </div>
+
+         <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green square symbol">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            #
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box blue round symbol">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            =
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red square number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            7
+                        </div>
+                    </div>              
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green round letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            R
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box blue square symbol">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            +
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box red round letter">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            G
+                        </div>
+                    </div>
+                </div>
+
+        <!-- -------------------------- BOX MARKUP -------------------------- -->      
+                <div class="media-box green square number">
+                    <div class="media-box-image mb-open-popup">
+                        <div data-width="1" data-height="1" data-thumbnail="none" ></div>
+                        
+                        <div class="thumbnail-overlay overlay-always-visible">
+                            7
+                        </div>
+                    </div>
+                </div>
+              
+        </div> <!-- #grid -->
+
+        <!--  ================== END MEDIA BOXES ================== -->
+
+        </div> <!-- #grid-container -->
+
+    </div>
+
+    <div class="section">
+        <div class="content">
+
+            <div class="headline">
+                <h2>Main Features</h2>
+
+                <p>
+                    These are just few main features of the Media Boxes.
+                </p>
+            </div>
+            
+            <div class="features-container">
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-cog"></i>       
+                            </div>
+                            <h4>Fully Customizable</h4>
+                            <p>You can adapt the plugin to your needs. Make any combination that you can think with images, videos, sounds, iframes, text, HTML, etc.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-arrows"></i>
+                            </div>
+                            <h4>Responsive Design</h4>
+                            <p>Put the plugin in any page and the grid will automatically adapt to its container taking care of keeping the right proportions.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-tablet"></i>
+                            </div>
+                            <h4>For Any Resolution</h4>
+                            <p>You can define the grid layout (the number of columns or the width) for phones, tablets, desktops and all kind of resolutions.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">   
+                
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-repeat"></i>
+                            </div>
+                            <h4>Stop waiting for all thumbnails to load</h4>
+                            <p>If you specify the ratio of the thumbnails the plugin will show you the layout and the content without any delay.</p>
+                        </div>
+                    </div>  
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-filter"></i>
+                            </div>
+                            <h4>Powerful filter system</h4>
+                            <p>You can combine multiple filtering, sorting and searching and even specify your own HTML markup.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-bolt"></i>
+                            </div>
+                            <h4>Super fast grid</h4>
+                            <p>The plugin is using Isotope v2 which is one of the fastest and powerful grid systems out there, using the best browser features when available.</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="row">
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-tachometer"></i>
+                            </div>
+                            <h4>Overlay Effect</h4>
+                            <p>Several overlay effects are using CSS3 transitions and GPU acceleration in order to give you the best performance available.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-expand"></i>
+                            </div>
+                            <h4>Define the Ratio</h4>
+                            <p>You can specify the ratio of the thumbnails and the plugin will cut and center them for you with CSS techniques.
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-file-text"></i>
+                            </div>
+                            <h4>Documentation</h4>
+                            <p>Step-by-step documentation from the simplest thing to the most advanced stuff, you can read it for free before you buy <a href="../documentation/index.html">here</a>.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">   
+                
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-desktop"></i>
+                            </div>
+                            <h4>Cross-browser support</h4>
+                            <p>Tested on IE 8+, Chrome, Mozilla, Safari, Opera and Mobile Browsers.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-life-ring"></i>
+                            </div>
+                            <h4>Free support</h4>
+                            <p>You can ask any question regarding the plugin before or after you buy and also get free updates</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="feature-text">
+                            <div class="feature-icon">
+                                <i class="fa fa-link"></i>
+                            </div>
+                            <h4>Deep linking</h4>
+                            <p>Directly link to the popup so you can share the popup content with your friends.</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-section footer">
+        <div class="content">
+            © 2015 Media Boxes Portfolio - Responsive Grid. Plugin made by <a href="http://codecanyon.net/user/castlecode">castlecode</a>
+        </div>
+    </div>
+
+    <div class="fixed fancybox-compensate-for-scrollbar">
+        <div class="to-top">
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </div>
+    </div>
+
+    <!-- jQuery 1.8+ -->
+    <script src="../plugin/components/jQuery/jquery-3.6.0.min.js"></script>
+    
+    <!-- Media Boxes JS files -->
+    <script src="../plugin/components/Isotope/jquery.isotope.min.js"></script>
+    <script src="../plugin/components/imagesLoaded/jquery.imagesLoaded.min.js"></script>
+    <script src="../plugin/components/Transit/jquery.transit.min.js"></script>
+    <script src="../plugin/components/jQuery Easing/jquery.easing.js"></script>
+    <script src="../plugin/components/jQuery Visible/jquery.visible.min.js"></script>
+    <script src="../plugin/components/Modernizr/modernizr.custom.min.js"></script>
+    <script src="../plugin/components/Magnific Popup/jquery.magnific-popup.min.js"></script>
+    <script src="../plugin/js/jquery.mediaBoxes.dropdown.js"></script>
+    <script src="../plugin/js/jquery.mediaBoxes.js"></script>
+
+    <script>
+
+        $('#grid').mediaBoxes({
+            multipleFilterLogic: 'OR',
+            filterContainer: '.filters',
+            search: '#search',
+            boxesToLoadStart: 20,
+            columns: 5,
+            searchTarget: '.thumbnail-overlay',
+            popup: 'magnificpopup',
+        }); 
+
+    </script>
+
+
+    <!-- Bootstrap JS file -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="js/demo.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+/**********
+* General styles
+***********/
+@import "../../app";
+/**********
+* Page
+***********/
+@import "../../common-sass/bootstrap-fileupload/bootstrap-fileupload";
+@import "../../front/form";
+
+#contactusPage{
+	#contacto{
+		&-1{
+			padding: 170px 0 50px;
+			@include media-breakpoint-up(sm) {
+				padding: 180px 0 70px
+			}
+		}
+	}
+}

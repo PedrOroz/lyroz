@@ -1,0 +1,48 @@
+Google Workspace
+
+Referencias
+https://guias.webempresa.com/preguntas-frecuentes/configurar-correo-google-apps-gmail/
+
+1.- Activar acceso de apps menos seguras
+	- Ingresar a la cuenta del cliente en Gmail
+	- Activar app menos seguras 
+		https://myaccount.google.com/lesssecureapps
+2.- Activar la verificación en 2 pasos
+	https://support.google.com/accounts/answer/185839?sjid=11789041499320151092-NC
+3.- Crear contraseña de aplicación
+	https://myaccount.google.com/apppasswords
+Tu contraseña de aplicación para la computadora con Windows
+paola.n.a.0914@gmail.com
+qlnzwulhizlpxtze
+-------
+Cpanel
+1.- Registros MX
+	   Prioridad 	     Valor/Respuesta/Destino
+		1		ASPMX.L.GOOGLE.COM
+		5 		ALT1.ASPMX.L.GOOGLE.COM
+		5 		ALT2.ASPMX.L.GOOGLE.COM
+		10 		ALT3.ASPMX.L.GOOGLE.COM
+		10 		ALT4.ASPMX.L.GOOGLE.COM
+
+2.- Registros CNAME
+	- localiza el registro CNAME mail.tudominio.com
+	- Haz click en la rueda azul y selecciona la opción ‘Editar registro’.
+	- Debes cambiar únicamente el Destino:
+		mail.tudominio.com IN CNAME tudominio.com
+	      por:
+		mail.tudominio.com IN CNAME ghs.google.com
+	NOTA:
+		Es posible que el registro mail.tudominio.com esté en tu zona DNS como tipo A apuntando a una IP. 
+		Sería necesario eliminarlo y después crear el registro:
+			mail.tudominio.com    IN    CNAME    ghs.google.com
+
+3.- Registros TXT
+	- Ubicar v=spf1 ip4
+	- Editar registro
+	- Añadir al final
+		include:_spf.google.com
+		Ejemplo:
+		v=spf1 ip4:108.179.194.83 +a +mx include:_spf.google.com ~all
+
+4.- Enrutamiento de correo electrónico
+       	- Selecciona Intercambiador de correo remoto

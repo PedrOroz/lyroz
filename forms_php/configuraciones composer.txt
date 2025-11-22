@@ -1,0 +1,26 @@
+cd forms_php
+	composer update
+	
+	Cargar librerías
+
+	- composer
+		- Actualizar
+		composer self-update
+	- phpmailer
+		composer require phpmailer/phpmailer
+
+	- tcpdf
+		composer require tecnickcom/tcpdf
+		INSTALAR FUENTES
+		- Agregar las fuentes con extension .ttf en la carpeta 
+			/forms_php/vendor/tecnickcom/tcpdf/tools/
+		- En consola CMD ejecutar la siguiente linea
+			php tcpdf_addfont.php -i NOMBRE_FUENTE.ttf
+			EJEMPLO:
+			php tcpdf_addfont.php -i GOTHAM-BOLD.ttf
+
+	- dompdf
+		composer require dompdf/dompdf
+
+	- htmlpurifier
+		composer require ezyang/htmlpurifier

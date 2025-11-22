@@ -1,0 +1,14 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/home.js": "/js/home.js",
+    "/js/contact-us.js": "/js/contact-us.js",
+    "/js/setting.js": "/js/setting.js",
+    "/js/dashboard.js": "/js/dashboard.js",
+    "/js/register.js": "/js/register.js",
+    "/css/dashboard.css": "/css/dashboard.css",
+    "/css/setting.css": "/css/setting.css",
+    "/css/contact-us.css": "/css/contact-us.css",
+    "/css/home.css": "/css/home.css",
+    "/css/app.css": "/css/app.css",
+    "/css/register.css": "/css/register.css"
+}

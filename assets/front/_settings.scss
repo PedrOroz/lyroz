@@ -1,0 +1,37 @@
+//font-face
+	//font-display: swap;
+	//../fonts/
+//colors
+$c_negro: #000000;
+$c_negro_1: #0b0b0b;
+$c_blanco: #ffffff;
+$c_gris_claro: #ccc;
+$c_gris_1: #cacaca;
+$c_gris_2: #484848;
+$c_azul_1: #C4E8F3;
+$c_azul_2: #6AA9E4;
+$c_azul_3: #316FF6;
+$c_azul_4: #00ACEE;
+$c_azul_5: #1570a2;
+$c_naranja_1: #FFC87E;
+$c_naranja_2: #fbad50;
+$c_verde_1: #4BAF9C;
+$c_verde_2: #075E54;
+$c_verde_3: #30b53b;
+$c_verde_4:#eef5e3;
+$font_1: 'Font Awesome 6 Free';//900
+$font_2: 'Font Awesome 6 Brands';//400
+$font_3: 'Poppins';
+/* Fonts */
+.f-light{font-family: $font_3, sans-serif;font-weight: 300;}
+.f-regular{font-family: $font_3, sans-serif;font-weight: 400;}
+.f-medium{font-family: $font_3, sans-serif;font-weight: 500;}
+.f-semibold{font-family: $font_3, sans-serif;font-weight: 600;}
+.f-bold{font-family: $font_3, sans-serif;font-weight: 700;}
+.f-estra-bold{font-family: $font_3, sans-serif;font-weight: 800;}
+.f-black{font-family: $font_3, sans-serif;font-weight: 900;}
+.bruno-ace-regular {
+  font-family: "Bruno Ace", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

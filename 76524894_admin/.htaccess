@@ -1,0 +1,209 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# ----------------------------------------------------------------------
+Options +FollowSymLinks
+RewriteBase /76524894_admin/
+# ----------------------------------------------------------------------
+# Default page
+# ----------------------------------------------------------------------
+DirectoryIndex index.php?view=home [NC,L]
+# ----------------------------------------------------------------------
+# | Custom error messages/pages                                        |
+# ----------------------------------------------------------------------
+ErrorDocument 404 /error-404
+ErrorDocument 500 /error-500
+ErrorDocument 502 /error-502
+ErrorDocument 504 /error-504
+# ----------------------------------------------------------------------
+# Rewrite redirection rules
+# ----------------------------------------------------------------------
+# ----------------------------------------------------------------------
+# VIEWS
+# ----------------------------------------------------------------------
+RewriteRule ^home$ index.php?view=home [NC,L]
+RewriteRule ^signUpBack$ index.php?view=signUpBack [NC,L]
+RewriteRule ^sign-off-back$ index.php?view=signOffBack [NC,L]
+RewriteRule ^recover-password$ index.php?view=recoverPassword [NC,L]
+
+RewriteRule ^main$ index.php?view=main [NC,L]
+RewriteRule ^my-profile/([0-9]*)$ index.php?view=myProfile&id_user=$1 [NC,L]
+RewriteRule ^configurations-users$ index.php?view=configurationsUsers [NC,L]
+RewriteRule ^configurations-profiles$ index.php?view=configurationsProfiles [NC,L]
+RewriteRule ^configurations-permissions$ index.php?view=configurationsPermissions [NC,L]
+RewriteRule ^design-slider$ index.php?view=designSlider [NC,L]
+RewriteRule ^design-slider-detail/([0-9]*)$ index.php?view=designSliderDetail&id_image=$1 [NC,L]
+RewriteRule ^design-website$ index.php?view=designWebsite [NC,L]
+RewriteRule ^design-carousel$ index.php?view=designCarousel [NC,L]
+RewriteRule ^catalogue-category$ index.php?view=catalogueCategory [NC,L]
+RewriteRule ^catalogue-child-category/([0-9]*)$ index.php?view=catalogueChildCategory&id_category=$1 [NC,L]
+RewriteRule ^catalogue-category-detail/([0-9]*)$ index.php?view=catalogueCategoryDetail&id_category=$1 [NC,L]
+RewriteRule ^catalogue-product$ index.php?view=catalogueProduct [NC,L]
+RewriteRule ^catalogue-product-detail/([0-9]*)$ index.php?view=catalogueProductDetail&id_product=$1 [NC,L]
+RewriteRule ^catalogue-attribute$ index.php?view=catalogueAttribute [NC,L]
+RewriteRule ^catalogue-child-attribute/([0-9]*)$ index.php?view=catalogueChildAttribute&id_attribute=$1 [NC,L]
+RewriteRule ^catalogue-attribute-detail/([0-9]*)$ index.php?view=catalogueAttributeDetail&id_attribute=$1 [NC,L]
+RewriteRule ^catalogue-promotion$ index.php?view=cataloguePromotion [NC,L]
+RewriteRule ^catalogue-promotion-detail/([0-9]*)$ index.php?view=cataloguePromotionDetail&id_promotion=$1 [NC,L]
+RewriteRule ^pages-blog$ index.php?view=pagesBlog [NC,L]
+RewriteRule ^pages-blog-detail/([0-9]*)$ index.php?view=pagesBlogDetail&id_blog=$1 [NC,L]
+RewriteRule ^proposals-menu$ index.php?view=proposalsMenu [NC,L]
+
+RewriteRule ^forms-yard$ index.php?view=formsYard [NC,L]
+RewriteRule ^forms-yard/send/([0-9]*)$ index.php?view=formsYard&id_msg=$1 [NC,L]
+RewriteRule ^forms-yard/error/([0-9]*)$ index.php?view=formsYard&id_error=$1 [NC,L]
+RewriteRule ^forms-yard-detail/([0-9]*)$ index.php?view=formsYardDetail&id_form=$1 [NC,L]
+RewriteRule ^forms-yard-pdf$ index.php?view=formsYardPdf [NC,L]
+RewriteRule ^forms-yard-print$ index.php?view=formsYardPrint [NC,L]
+
+RewriteRule ^chat$ index.php?view=chat [NC,L]
+RewriteRule ^chat/([0-9]*)$ index.php?view=chatDetail&id_user=$1 [NC,L]
+# ----------------------------------------------------------------------
+# SELECT
+# ----------------------------------------------------------------------
+RewriteRule ^s-lo-in-b$ core/code/s/sLoInB.php [NC,L]
+RewriteRule ^all-conversatins-cht-u$ core/code/chat/s/allConversatinsChtU.php [NC,L]
+RewriteRule ^gt-message-cht-u$ core/code/chat/s/getMessageChtU.php [NC,L]
+RewriteRule ^lst-notifiction-cht-u$ core/code/chat/s/lstNotifictionChtU.php [NC,L]
+RewriteRule ^lst-notifiction-inactive-u$ core/code/user/s/lstNotifictionInactiveU.php [NC,L]
+RewriteRule ^gt-d-mnu$ core/code/diner-menu/s/getDinerMenu.php [NC,L]
+# ----------------------------------------------------------------------
+# SEARCH
+# ----------------------------------------------------------------------
+RewriteRule ^searh-chat-u-by-name-u$ core/code/chat/s/searchChatUserByNameUser.php [NC,L]
+# ----------------------------------------------------------------------
+# UPDATE
+# ----------------------------------------------------------------------
+RewriteRule ^upd-ema-u$ core/code/user/upd/updEmaU.php [NC,L]
+RewriteRule ^upd-psw-u$ core/code/user/upd/updPswU.php [NC,L]
+RewriteRule ^recover-psw-by-ema-u$ core/code/user/upd/recoverPswUByEmaU.php [NC,L]
+
+RewriteRule ^upd-inf-u$ core/code/user/upd/updInfU.php [NC,L]
+RewriteRule ^upd-inf-u-so-me$ core/code/user/upd/updInfUSoMe.php [NC,L]
+RewriteRule ^upd-u-theme-and-col$ core/code/user/upd/updUThemeAndCol.php [NC,L]
+
+RewriteRule ^upd-inf-slder$ core/code/slider/upd/updInfSlder.php [NC,L]
+RewriteRule ^upd-inf-ctegry$ core/code/category/upd/updInfCtegry.php [NC,L]
+RewriteRule ^upd-inf-attribte$ core/code/attribute/upd/updInfAttribte.php [NC,L]
+
+RewriteRule ^lev-as-main-prduct$ core/code/product/upd/levAsMainPrduct.php [NC,L]
+RewriteRule ^lev-as-main-prsentation-prduct$ core/code/product/upd/levAsMainPrsentationPrduct.php [NC,L]
+RewriteRule ^lev-as-main-blog$ core/code/blog/upd/levAsMainBlog.php [NC,L]
+RewriteRule ^lev-as-main-evnt$ core/code/event/upd/levAsMainEvnt.php [NC,L]
+
+RewriteRule ^upd-inf-prduct-lang$ core/code/product/upd/updInfPrductLang.php [NC,L]
+RewriteRule ^upd-inf-prduct-lang-prmotion$ core/code/product/upd/updInfPrductPrmotion.php [NC,L]
+RewriteRule ^upd-inf-prduct-strpe$ core/code/product/upd/updInfPrductStrpe.php [NC,L]
+RewriteRule ^upd-inf-prduct-lang-add-inf$ core/code/product/upd/updInfPrductAddInf.php [NC,L]
+
+RewriteRule ^upd-inf-file-lang$ core/code/file/upd/updInfFileLang.php [NC,L]
+RewriteRule ^upd-inf-prduct-lang-prsentation-lang$ core/code/product/upd/updInfPrductLangPrsentationLang.php [NC,L]
+RewriteRule ^upd-inf-blog-lang$ core/code/blog/upd/updInfBlogLang.php [NC,L]
+RewriteRule ^upd-inf-evnt-lang$ core/code/event/upd/updInfEvntLang.php [NC,L]
+
+RewriteRule ^upd-inf-frm-yard$ core/code/form/upd/updInfFrmYard.php [NC,L]
+
+RewriteRule ^upd-gnrl-sttus$ core/code/upd/updGnrlSttus.php [NC,L]
+RewriteRule ^upd-gnrl-sttus-visble$ core/code/upd/updGnrlSttusVisble.php [NC,L]
+RewriteRule ^upd-sttus-intrnl-sctions$ core/code/upd/updSttusIntrnlSctions.php [NC,L]
+
+RewriteRule ^upd-gnrl-oden/call-([0-9]+)?$ core/code/upd/updGnrlOden.php?id_call=$1 [NC,L]
+RewriteRule ^upd-oden-intrnl-sctions/section-([0-9]+)/call-([0-9]+)?$ core/code/upd/updOdenIntrnlSctions.php?id_type_section=$1&id_call=$2 [NC,L]
+
+RewriteRule ^upd-image-by-image-lang-ver-id$ core/code/image/upd/updImageByImageLangVerId.php [NC,L]
+RewriteRule ^upd-image-by-image-lang-ver-id-wthout-lang$ core/code/image/upd/updImageByImageLangVerIdWthoutLang.php [NC,L]
+
+RewriteRule ^upd-lst-seen-cht-u$ core/code/chat/upd/updLstSeenChtU.php [NC,L]
+RewriteRule ^upd-blck-conversatins$ core/code/chat/upd/updBlckConversatins.php [NC,L]
+# ----------------------------------------------------------------------
+# REGISTER
+# ----------------------------------------------------------------------
+RewriteRule ^new-reg-u$ core/code/user/r/newRegU.php [NC,L]
+RewriteRule ^new-reg-f-u$ core/code/user/r/newRegFU.php [NC,L]
+RewriteRule ^new-reg-only-soc-net-to-u$ core/code/user/r/newRegOnlySocNetToU.php [NC,L]
+RewriteRule ^new-reg-ctegry$ core/code/category/r/newRegCtegry.php [NC,L]
+RewriteRule ^new-reg-parnt-ctegry$ core/code/category/r/newRegParntCtegry.php [NC,L]
+RewriteRule ^new-reg-prduct$ core/code/product/r/newRegPrduct.php [NC,L]
+RewriteRule ^new-reg-prduct-prmotion$ core/code/product/r/newRegPrductPrmotion.php [NC,L]
+RewriteRule ^new-reg-strpe$ core/code/product/r/newRegStrpe.php [NC,L]
+RewriteRule ^new-reg-add-inf$ core/code/product/r/newRegAddInf.php [NC,L]
+RewriteRule ^new-reg-parnt-attribte$ core/code/attribute/r/newRegParntAttribte.php [NC,L]
+RewriteRule ^new-reg-prmotion$ core/code/promotion/r/newRegPrmotion.php [NC,L]
+RewriteRule ^new-reg-attribte$ core/code/attribute/r/newRegAttribte.php [NC,L]
+RewriteRule ^new-reg-blog$ core/code/blog/r/newRegBlog.php [NC,L]
+RewriteRule ^new-reg-only-soc-net-to-blog$ core/code/blog/r/newRegOnlySocNetToBlog.php [NC,L]
+RewriteRule ^new-reg-evnt$ core/code/event/r/newRegEvnt.php [NC,L]
+RewriteRule ^new-reg-msg-cht-u$ core/code/chat/r/newRegMsgChtU.php [NC,L]
+RewriteRule ^new-reg-chf-prposl$ core/code/diner-menu/r/newRegChfPrposl.php [NC,L]
+
+RewriteRule ^asso-ctegry-to-prduct$ core/code/product/r/assoCtegryToPrduct.php [NC,L]
+RewriteRule ^asso-ctegry-to-blog$ core/code/blog/r/assoCtegryToBlog.php [NC,L]
+RewriteRule ^asso-ctegry-to-evnt$ core/code/event/r/assoCtegryToEvnt.php [NC,L]
+
+RewriteRule ^asso-parent-to-blog$ core/code/blog/r/assoParentToBlog.php [NC,L]
+RewriteRule ^asso-parent-to-prduct$ core/code/product/r/assoParentToPrduct.php [NC,L]
+
+RewriteRule ^new-reg-frm-yard$ core/code/form/r/newRegFrmYard.php [NC,L]
+RewriteRule ^new-reg-containr-yard$ core/code/form/r/newRegContainrYard.php [NC,L]
+# ----------------------------------------------------------------------
+# UPLOAD
+# ----------------------------------------------------------------------
+RewriteRule ^upl-u-pro-pi-b$ core/code/user/upl/uplUProPiB.php [NC,L]
+RewriteRule ^upl-u-theme-wth-file$ core/code/user/upl/uplUThemeWthFile.php [NC,L]
+RewriteRule ^upl-slder$ core/code/slider/upl/uplSlder.php [NC,L]
+
+RewriteRule ^upl-drpzne-carousel$ core/code/carousel/upl/uplDrpzneCarousel.php [NC,L]
+RewriteRule ^upl-drpzne-gallery-u$ core/code/user/upl/uplDrpzneGalleryU.php [NC,L]
+
+RewriteRule ^upl-prduct-cver$ core/code/product/upl/uplPrductCver.php [NC,L]
+RewriteRule ^upl-prsentation-of-the-prduct$ core/code/product/upl/uplPrsentationOfThePrduct.php [NC,L]
+RewriteRule ^upl-blog-cver$ core/code/blog/upl/uplBlogCver.php [NC,L]
+RewriteRule ^upl-evnt-cver$ core/code/event/upl/uplEvntCver.php [NC,L]
+
+RewriteRule ^upl-summernote-image$ core/code/image/upl/uplSummernoteImage.php [NC,L]
+RewriteRule ^upl-image-ver-by-image-lang-id$ core/code/image/upl/uplImageVerByImageLangId.php [NC,L]
+RewriteRule ^upl-image-ver-in-a-single-language-by-image-lang-id$ core/code/image/upl/uplImageVerInASingleLanguageByImageLangId.php [NC,L]
+RewriteRule ^upl-image-wthout-stion-2-pmtrs$ core/code/image/upl/uplImageWthoutStion2Pmtrs.php [NC,L]
+RewriteRule ^upl-image-2-pmtrs$ core/code/image/upl/uplImage2Pmtrs.php [NC,L]
+
+RewriteRule ^upl-gnrl-file$ core/code/file/upl/updGnrlFile.php [NC,L]
+# ----------------------------------------------------------------------
+# DELETE
+# ----------------------------------------------------------------------
+RewriteRule ^d-gnrl$ core/code/d/dGnrl.php [NC,L]
+RewriteRule ^d-wth-4-pmtrs$ core/code/d/dWth4Pmtrs.php [NC,L]
+RewriteRule ^d-wth-img-5-pmtrs$ core/code/image/d/dWthImg5Pmtrs.php [NC,L]
+RewriteRule ^d-wth-img-6-pmtrs$ core/code/image/d/dWthImg6Pmtrs.php [NC,L]
+RewriteRule ^d-wth-img-ver-3-pmtrs$ core/code/image/d/dWthImgVer3Pmtrs.php [NC,L]
+RewriteRule ^d-wth-file-3-pmtrs$ core/code/file/d/dWthFile3Pmtrs.php [NC,L]
+
+RewriteRule ^d-prduct-strpe$ core/code/product/d/dPrductStrpe.php [NC,L]
+RewriteRule ^d-prduct-lang-add-inf$ core/code/product/d/dPrductLangAddInf.php [NC,L]
+RewriteRule ^d-prduct-partner$ core/code/product/d/dPrductPartner.php [NC,L]
+RewriteRule ^d-prduct-lang-prsentation$ core/code/product/d/dPrductLangPrsentation.php [NC,L]
+RewriteRule ^d-prduct-prmotion$ core/code/product/d/dPrductPrmotion.php [NC,L]
+
+RewriteRule ^d-containr-yard$ core/code/form/d/dContainrYard.php [NC,L]
+
+RewriteRule ^d-blog-partner$ core/code/blog/d/dBlogPartner.php [NC,L]
+
+RewriteRule ^d-all-messages-cht-by-u$ core/code/chat/d/dAllMessagesChtByU.php [NC,L]
+
+#RewriteRule ^delete-with-3-parameters$ core/code/deleteWith3Parameters.php [NC,L]
+#RewriteRule ^delete-with-image-version-1-parameter$ core/code/deleteWithImageVersion1Parameter.php [NC,L]
+# ----------------------------------------------------------------------
+# ARCHIVOS DIGITALES
+# ----------------------------------------------------------------------
+RewriteRule ^excel-formularios$ core/code/form/arc/view-excel-frms.php [NC,L]
+RewriteRule ^correo-formularios$ core/code/form/arc/view-correo-frms.php [NC,L]
+RewriteRule ^pdf-formularios$ core/code/form/arc/view-pdf-frms.php [NC,L]
+# ----------------------------------------------------------------------
+# CUSTOM PAGES
+# ----------------------------------------------------------------------
+RewriteRule ^error-(404|500|502|504)(?:/(es|en))?$ index.php?view=error$1&lang=$2 [NC,L]
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css|css|woff2)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>

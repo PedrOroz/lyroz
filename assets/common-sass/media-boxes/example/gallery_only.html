@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Masonry Gallery - Responsive jQuery Grid Plugin | Media Boxes Portfolio</title>
+
+	<link rel="icon" href="img/favicon.ico" type="image/png">
+
+	<meta name="description" content="Display your images or photos in a masonry style gallery."/>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<!-- needed for mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  
+  	<!-- Import font -->
+  	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+  	
+  	<!-- Media Boxes CSS files -->
+  	<link rel="stylesheet" href="../plugin/components/Font Awesome/css/font-awesome.min.css"> <!-- only if you use Font Awesome -->
+	<link rel="stylesheet" href="../plugin/components/Fancybox/jquery.fancybox.min.css"> <!-- only if you use fancybox -->
+	<link rel="stylesheet" type="text/css" href="../plugin/css/mediaBoxes.css">
+
+	<style>
+
+		body{
+			padding: 0;
+			margin: 0;
+			overflow-y: scroll;
+		}
+
+		/* Fancybox full width and height on iframes */
+		
+		.fancyboxMB-slide{
+			padding: 0 !important;
+		}
+
+		.fancyboxMB-slide--iframe .fancyboxMB-content {
+		    width  : 100% !important;
+		    height : 100% !important;
+		    max-width  : 100% !important;
+		    max-height : 100% !important;
+		    margin: 0;
+		}
+
+	/* == LETS MODIFY SOME COLORS AND STYLE FOR THE DEMO == */
+
+		/* hide no more entries button */
+		.media-boxes-no-more-entries{
+			display: none;
+		}
+
+		/* make your own style of the filter */
+		.filters-container{
+			margin-bottom: 20px;
+		}
+		.custom-filter{
+			padding: 0;
+			text-align: right;
+		}
+		.custom-filter li{
+			list-style: none;
+			display: inline-block;
+			margin-left: 18px;
+			font-size: 12px;
+		}
+		.custom-filter li a{
+			color: #999;
+			text-decoration: none;
+		}
+		.custom-filter li a:hover{
+			color: #333;
+		}
+		.custom-filter li a.selected{
+			color: #D1474C !important;
+		}
+
+		/* Set the style of the thumbnail overlay items */
+		.media-box-title{
+			color: #fff;
+			font-size: 11px;
+			margin-bottom: 5px;
+			text-transform: uppercase;
+		    letter-spacing: 2px;
+		    line-height: 28px;
+		}
+		.media-box-date{
+			color: #F2F2F2;
+			font-size: 10px;
+		}
+
+		/* Remove box shadow and border-radius from the media boxes */
+		.media-box-container{
+			  -webkit-border-radius: 0px;
+			  	 -moz-border-radius: 0px;
+			  		  border-radius: 0px;
+
+			  -webkit-box-shadow: none;
+			  	 -moz-box-shadow: none;
+			  	   -o-box-shadow: none;
+			      -ms-box-shadow: none;
+			  		  box-shadow: none;
+		}
+
+		/* thumbnail overlay background */
+		.thumbnail-overlay{
+    		background-color: rgba(0,0,0, .40);
+
+    		-webkit-transition: background-color 0.2s ease-out;
+		       -moz-transition: background-color 0.2s ease-out;
+		         -o-transition: background-color 0.2s ease-out;
+		            transition: background-color 0.2s ease-out;
+		}
+
+		/* hover effect on the thumbnail-overlay */
+		.thumbnail-overlay:hover{
+    		background-color: rgba(0,0,0, .20) !important;
+		}
+		
+		/* hover effect on the image */
+		.media-box-image img{
+		    -webkit-transition: transform 0.6s ease-in-out;
+		       -moz-transition: transform 0.6s ease-in-out;
+		         -o-transition: transform 0.6s ease-in-out;
+		        -ms-transition: transform 0.6s ease-in-out;
+		            transition: transform 0.6s ease-in-out;
+
+		    -webkit-transform-origin: bottom left;
+		       -moz-transform-origin: bottom left;
+		         -o-transform-origin: bottom left;
+		        -ms-transform-origin: bottom left;
+		            transform-origin: bottom left;
+		}
+		.media-box-image:hover img{
+		    -webkit-transform: scale(1.2) translate(-20px);
+		       -moz-transform: scale(1.2) translate(-20px);
+		         -o-transform: scale(1.2) translate(-20px);
+		        -ms-transform: scale(1.2) translate(-20px);
+		            transform: scale(1.2) translate(-20px);
+		}
+
+		/* Change alignment in grid 2 */
+		#grid2 .thumbnail-overlay>div.aligment>div.aligment{
+			vertical-align: bottom;
+			padding-bottom: 40px;
+		}
+
+		.thumbnail-overlay .media-box-title{
+			font-size: 16px;
+		}
+
+		.thumbnail-overlay .media-box-date{
+			font-style: italic;
+			font-size: 12px;
+		}
+
+	</style>
+	
+</head>
+<body>
+
+    <div class="filters-container">
+        
+        <ul class="custom-filter" id="filter">
+          <li><a class="selected" href="#" data-filter="*">All</a></li>
+          <li><a href="#" data-filter=".indoors">Indoors</a></li>
+          <li><a href="#" data-filter=".outside">Outside</a></li>
+          <li><a href="#" data-filter=".photography">Photography</a></li>
+        </ul>
+    </div>
+
+    <div id="grid">
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box indoors">
+                <div class="media-box-image mb-open-popup" data-type="iframe" data-src="http://www.castlecodeweb.com/mediaboxes/example/">
+                    <div data-width="752" data-height="500" data-thumbnail="gallery/thumbnails/thumb-36.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Psico consecteture</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+          
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-39.jpg">
+                    <div data-width="752" data-height="1000" data-thumbnail="gallery/thumbnails/thumb-39.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Sed do eiusmod</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box photography">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-43.jpg">
+                    <div data-width="752" data-height="560" data-thumbnail="gallery/thumbnails/thumb-43.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Incididunt ut labore</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+         
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box indoors">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-10.jpg">
+                    <div data-width="752" data-height="1125" data-thumbnail="gallery/thumbnails/thumb-10.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Enim ad minim</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-30.jpg">
+                    <div data-width="752" data-height="424" data-thumbnail="gallery/thumbnails/thumb-30.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Nostrud exercitation</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box photography">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-35.jpg">
+                    <div data-width="752" data-height="500" data-thumbnail="gallery/thumbnails/thumb-35.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Ullamco laboris</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+            
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box indoors">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-46.jpg">
+                    <div data-width="752" data-height="498" data-thumbnail="gallery/thumbnails/thumb-46.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Et dolore magna</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+     
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-28.jpg">
+                    <div data-width="752" data-height="350" data-thumbnail="gallery/thumbnails/thumb-28.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Ex ea commodo</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box photography">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-25.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-25.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Nisi ut aliquip</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box indoors">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-44.jpg">
+                    <div data-width="752" data-height="564" data-thumbnail="gallery/thumbnails/thumb-44.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Tempora sed rerum</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>
+            
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-9.jpg">
+                    <div data-width="752" data-height="1128" data-thumbnail="gallery/thumbnails/thumb-9.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Deserunt labore ratione</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>   
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box photography">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-21.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-21.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Inventore ipsa iste</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>  
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box indoors">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-19.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-19.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Perspiciatis ducimus</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div> 
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-56.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-56.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Error quibusdam nisi</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>      
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-22.jpg">
+                    <div data-width="752" data-height="496" data-thumbnail="gallery/thumbnails/thumb-22.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Officia quo suscipit</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div> 
+            
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-23.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-23.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Cupiditate provident</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div> 
+            
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-24.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-24.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Sit vel error</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div> 
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-25.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-25.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Harum repudiandae</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>    
+
+	<!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-26.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-26.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Voluptas quas</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>  
+	
+	<!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-27.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-27.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Recusandae odit</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>  
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-28.jpg">
+                    <div data-width="752" data-height="350" data-thumbnail="gallery/thumbnails/thumb-28.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Natus maiores voluptates</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>  
+
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-29.jpg">
+                    <div data-width="752" data-height="502" data-thumbnail="gallery/thumbnails/thumb-29.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">East cumque et</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div> 
+            
+    <!-- -------------------------- BOX MARKUP -------------------------- -->      
+            <div class="media-box outside">
+                <div class="media-box-image mb-open-popup" data-src="gallery/img-30.jpg">
+                    <div data-width="752" data-height="424" data-thumbnail="gallery/thumbnails/thumb-30.jpg" ></div>
+                    
+                    <div class="thumbnail-overlay">
+                        <div class="media-box-title">Cumque aliquam</div>
+                        <div class="media-box-date">December 10, 2013</div>
+                    </div>
+                </div>
+            </div>                         
+          
+   	</div> <!-- #grid -->
+
+    <!--  ================== END MEDIA BOXES ================== -->
+
+	<!-- jQuery 1.8+ -->
+	<script src="../plugin/components/jQuery/jquery-3.6.0.min.js"></script>
+	
+	<!-- Media Boxes JS files -->
+	<script src="../plugin/components/Isotope/jquery.isotope.min.js"></script>
+	<script src="../plugin/components/imagesLoaded/jquery.imagesLoaded.min.js"></script>
+	<script src="../plugin/components/Transit/jquery.transit.min.js"></script>
+	<script src="../plugin/components/jQuery Easing/jquery.easing.js"></script>
+	<script src="../plugin/components/jQuery Visible/jquery.visible.min.js"></script>
+	<script src="../plugin/components/Modernizr/modernizr.custom.min.js"></script>
+	<script src="../plugin/components/Fancybox/jquery.fancybox.min.js"></script> <!-- only if you use Fancybox -->
+	<script src="../plugin/js/jquery.mediaBoxes.dropdown.js"></script>
+	<script src="../plugin/js/jquery.mediaBoxes.js"></script>
+
+	<script>
+
+	    $('#grid').mediaBoxes({
+	    	filterContainer: '#filter',
+	    	search: '#search',
+	    	columns: 3,
+	    	boxesToLoadStart: 9,
+	    	boxesToLoad: 9,
+	    	horizontalSpaceBetweenBoxes: 30,
+        	verticalSpaceBetweenBoxes: 30,
+        	minBoxesPerFilter: 20,
+        	deepLinkingOnFilter: false,
+        	deepLinkingOnPopup: false,
+        	animation_on_thumbnail_overlay_hover : [
+	        	{ item : '.media-box-title', animation : 'from-top' },
+	        	{ item : '.media-box-date', animation : 'from-bottom' }
+	        ],
+	        fancybox: {
+        		idleTime : 99999999999,    // Display thumbnails on opening/closing
+        		buttons             :   [ '','', '', 'close' ],
+        		arrows              : false,
+        		keyboard            : false,
+        	},
+	    }); 
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+@import "../../app";
+@import "../../common-sass/bootstrap-datepicker/bootstrap-datepicker";
+@import "../../common-sass/summernote/summernote-lite";
+
+#settingPage{
+	.datepicker{
+		&-dropdown{
+			background: $c_negro;
+			&::after{
+				border-bottom: 6px solid $c_negro;
+			}
+		}
+		&-days{
+			table{
+				tr{
+					text-transform: uppercase;
+					color: $c_blanco;
+					td.day{
+						color: $c_blanco;
+						&:hover,
+						&:focus{
+							background: #555454;
+						}
+					}
+				}
+			} 
+		}
+		&-months{
+			&.active{
+				background-color: #7d7878;
+			}
+		}
+		&-switch:hover, 
+		.prev:hover, 
+		.next:hover, 
+		tfoot tr th:hover{
+		 	background-color: #7d7878;
+		}
+		thead{
+			tr{
+				&:first-child{
+					text-transform: uppercase;
+					th{
+						color: $c_blanco;
+					}
+				}
+			}
+		}
+		table{
+			tr{
+				td{
+					span{
+						color: $c_blanco;
+						&:hover,
+						&:focus{
+							background: #555454;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#mis-ajustes{
+		.file-select,.file-select i{position: absolute;}
+		.file-select{top: 0;right: 0;z-index: 1;}
+		.file-select i{font-size: 20px;left: 8px;top: 5px;}
+		.file-select::before {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  content: '';
+		  position: absolute;
+		  left: 25px;
+		  right: 0;
+		  top: 0;
+		  bottom: 0;
+		}
+		.file-select input[type="file"] {opacity: 0;max-width: 200px;padding: 0.25rem 0.5rem 0.25rem 1.9rem;}
+		#src-file1::before {content: 'Cambiar foto de perfil';}
+		.container-input {
+		    text-align: center;
+		    background: #fff;
+		    border: 1px solid #2baab1;
+			width: 145px;
+		}
+		.inputfile {
+		    width: 0.1px;
+		    height: 0.1px;
+		    opacity: 0;
+		    overflow: hidden;
+		    position: absolute;
+		    z-index: -1;
+		}
+
+		.inputfile + label.ver-1 {
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    cursor: pointer;
+		    display: inline-block;
+		    overflow: hidden;
+		    padding: 2.04rem 0;
+		    color: #2baab1;
+		    margin: 0;
+		}
+		.inputfile + label.ver-2 {
+		    cursor: pointer;
+		    display: block;
+		    color: #fff;
+		    margin: 0;
+		}
+		.inputfile-5 + label {
+		    color: #c39f77;
+		}
+
+		.inputfile-5:focus + label,
+		.inputfile-5.has-focus + label,
+		.inputfile-5 + label:hover {
+		    color: #9f8465;
+		}
+
+		.inputfile-5 + label figure {
+		    width: 100px;
+		    height: 100px;
+		    border-radius: 50%;
+		    background-color: #c39f77;
+		    display: block;
+		    padding: 20px;
+		    margin: 0 auto 10px;
+		}
+
+		.inputfile-5:focus + label figure,
+		.inputfile-5.has-focus + label figure,
+		.inputfile-5 + label:hover figure {
+		    background-color: #9f8465;
+		}
+
+		.inputfile-5 + label svg {
+		    width: 100%;
+		    height: 100%;
+		    fill: #fff;
+		}
+		.thumb-info {
+			position: relative;
+		}
+		.thumb-info > img{margin: 0 auto;display: block;}
+		.thumb-info .thumb-info-title {
+			-webkit-transition: all 0.3s;
+			transition: all 0.3s;
+			background: rgba(36, 27, 28, 0.9);
+			bottom: 10%;
+			color: #FFF;
+			font-size: 18px;
+			font-weight: 700;
+			left: 0;
+			letter-spacing: -1px;
+			padding: 9px 11px 9px;
+			position: absolute;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+			text-transform: uppercase;
+			z-index: 1;
+		}
+
+		.thumb-info .thumb-info-inner {
+			-webkit-transition: all 0.3s;
+			transition: all 0.3s;
+			display: block;
+			white-space: nowrap;
+		}
+
+		.thumb-info .thumb-info-type {
+			background-color: #E9E9E6;
+			border-radius: 2px;
+			display: inline-block;
+			float: left;
+			font-size: 12px;
+			font-weight: 400;
+			letter-spacing: 0;
+			margin: 8px -2px -15px -2px;
+			padding: 2px 9px;
+			text-transform: none;
+		}
+		.box-progress{
+			position: fixed;
+		    left: 0;
+		    width: 100%;
+		    z-index: 99999;
+		    top: 0;
+		    background-color: #0b0b0b;
+		    opacity: .8;
+		    height: 100%;
+		    display: none;
+		}
+		.progress{
+			position: relative;
+		    top: 45%;
+		    z-index: 1;
+		}
+	}
+}

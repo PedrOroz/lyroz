@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multiple Grids - Responsive jQuery Grid Plugin | Media Boxes Portfolio</title>
+
+	<link rel="icon" href="img/favicon.ico" type="image/png">
+
+	<meta name="description" content="You can have many grids in one page and each one with its own settings."/>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<!-- needed for mobile devices -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
+  
+  	<!-- Import font -->
+  	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+
+  	<!-- Style for Bootstrap -->
+  	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  	
+  	<!-- Custom style for the demo-->
+  	<link rel="stylesheet" href="css/demo.css">
+  	
+  	<!-- Media Boxes CSS files -->
+  	<link rel="stylesheet" href="../plugin/components/Font Awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../plugin/components/Fancybox/jquery.fancybox.min.css"> <!-- only if you use fancybox -->
+	<link rel="stylesheet" type="text/css" href="../plugin/css/mediaBoxes.css">
+
+	<style>
+
+	/* == LETS MODIFY SOME COLORS AND STYLE FOR THE DEMO == */
+
+		/* change the style of the first grid */
+		#grid .thumbnail-overlay{
+			background: #fff;
+			padding: 0 15px;
+		}
+		#grid .thumbnail-overlay>div.aligment>div.aligment {
+    		text-align: left; /* FOR HORIZONTAL ALIGN */
+  		}
+  		.media-boxes-drop-down{
+      		float: right;
+      		margin-left: 8px;
+      	}
+
+
+		/* change the style of the second grid */
+		.white-popup .media-box-view-image a,
+		#grid2 .media-box-date, .white-popup .media-box-date{
+			color: #28ac86;
+		}
+		.white-popup {
+			position: relative;
+			background: #FFF;
+			padding: 20px;
+			width: auto;
+			max-width: 500px;
+			margin: 20px auto;
+		}
+		#grid2 .thumbnail-overlay{
+			padding: 10px 5px;
+			background: white;
+		}
+      	#filter2 li a.selected {
+			background: #28ac86;
+		}
+		#grid2 .thumbnail-overlay>div.aligment>div.aligment {
+    		text-align: left; /* FOR HORIZONTAL ALIGN */
+  		}
+
+		/* hide "no more entries button" */
+		.media-boxes-no-more-entries{
+			display: none;
+		}
+
+		/* style of the footer of each media box */
+		.media-box-footer{
+			padding: 15px 20px;
+			font-size: 11px;
+			color: #777;
+		}
+
+	</style>
+	
+</head>
+<body>
+	
+	<div class="header fancybox-compensate-for-scrollbar">
+		<div class="content">
+
+			<!-- Static navbar -->
+			<div class="navbar navbar-default">
+				<div class="container-fluid">
+
+					<!-- menu project name -->
+				  	<div class="navbar-header">
+				    	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				      	<span class="sr-only">Toggle navigation</span>
+				      	<span class="icon-bar"></span>
+				      	<span class="icon-bar"></span>
+				      	<span class="icon-bar"></span>
+				    	</button>
+				    	<a class="navbar-brand" href="./"><img class="reverse" src="img/logo.png" alt="Media Boxes" title="Media Boxes"></a>
+				  	</div>
+
+				  	<!-- menu items -->
+				  	<div id="navbar" class="navbar-collapse collapse">
+					    <ul class="nav navbar-nav navbar-right">
+					    	<li><a href="./">Home</a></li>
+					    	<li class="dropdown">
+				        		<a href="#" class="dropdown-toggle selected" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usage Examples <span class="fa fa-chevron-down"></span></a>
+						        <ul class="dropdown-menu">
+									<li>
+										<!-- Content container to add padding -->
+										<div class="dropdown-menu-content clearfix">
+											<ul class="dropdown-menu-column">
+												<li><a href="blog_posts.html">Blog Posts</a></li>
+												<li><a href="pinterest_style.html">Pinterest Style</a></li>
+												<li><a href="media_grid.html">Media Grid</a></li>
+												<li><a href="clients.html">Clients</a></li>
+												<li><a href="portfolio.html">Portfolio</a></li>
+												<li><a href="shop.html">Shop</a></li>
+												<li><a href="dark_grid.html">Dark Grid</a></li>
+											</ul>
+											<ul class="dropdown-menu-column popover-with-margin">
+												<li><a href="gallery.html">Masonry Gallery</a></li>
+												<li><a href="full_width_gallery.html">Full Width Gallery</a></li>
+												<li><a href="multiple_filters.html">Multiple Filters</a></li>
+												<li><a class="selected" href="multiple_grids.html">Multiple Grids</a></li>
+												<li><a href="circular_fun.html">Circular Fun</a></li>
+												<li><a href="overlay_effects.html">Overlay Effects</a></li>
+												<li><a href="popup_content.html">Popup Content</a></li>
+											</ul>
+										</div>
+									</li>
+						        </ul>
+				      		</li>
+				      		<li>
+                                <a href="https://codecanyon.net/item/wp-media-boxes-portfolio-responsive-wordpress-grid-plugin/22881148" target="blank">Wordpress Version</a>
+                            </li>
+					      	<li>
+					      		<a href="http://codecanyon.net/item/media-boxes-responsive-jquery-grid/5683020" target="_blank">Buy Now</a>
+					      	</li>
+					    </ul>
+				  	</div><!--/.nav-collapse -->
+				</div><!--/.container-fluid -->
+			</div>
+    
+		</div>
+	</div>
+	
+	<div class="grid-section">
+
+		<div class="headline">
+			<h2>MULTIPLE <strong>GRIDS</strong></h2>
+
+			<p>
+				You can have many grids in one page and each one with its own settings.
+			</p>
+		</div>
+
+		<div class="content grid-container">
+
+		<!--  ================== MEDIA BOXES ================== -->
+		
+		<div class="filters-container">
+
+			<div class="media-boxes-search">
+                <span class="media-boxes-icon fa fa-search"></span>
+                <input type="text" id="search" placeholder="Search by title">
+                <span class="media-boxes-clear fa fa-close"></span>
+            </div>
+
+			<div class="media-boxes-drop-down" id="sort">
+				<div class="media-boxes-drop-down-header">
+				</div>
+				<ul class="media-boxes-drop-down-menu">
+					<li><a href="#" data-sort-by="original-order" class="selected">Original Order</a></li>
+					<li><a href="#" data-sort-by="title" data-sort-toggle="true">Sort by Title</a></li>
+					<li><a href="#" data-sort-by="year" data-sort-toggle="true">Sort by Year</a></li>
+					<li><a href="#" data-sort-by="author" data-sort-toggle="true">Sort by Author</a></li>
+				</ul>
+			</div>
+
+			<div class="media-boxes-drop-down" id="filter">
+				<div class="media-boxes-drop-down-header">
+				</div>
+				<ul class="media-boxes-drop-down-menu">
+					<li><a class="selected" href="#" data-filter="*">All</a></li>
+					<li><a href="#" data-filter=".category1">Category 1</a></li>
+					<li><a href="#" data-filter=".category2">Category 2</a></li>
+					<li><a href="#" data-filter=".category3">Category 3</a></li>
+					<li><a href="#" data-filter=".category1, .category2">Category 1 and 2</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div id="grid">
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-3.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2010</div>
+			                <div class="media-box-title">Dolor sit amet</div>
+			                <div class="media-box-author">
+			                	by Isadore Lynton
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-3.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-29.jpg"></div>
+		                
+		                 <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2006</div>
+			                <div class="media-box-title">Psico dell consecteture</div>
+			                <div class="media-box-author">
+			                	by Damon Hart
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-29.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- --> 
+		        <div class="media-box category3" data-columns="2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-40.jpg"></div>
+
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2007</div>
+			                <div class="media-box-title">Sed do eiusmod</div>
+			                <div class="media-box-author">
+			                	by Winifred May
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-40.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1" data-columns="2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-31.jpg"></div>
+		                
+			            <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2009</div>
+			                <div class="media-box-title">Incididunt ut labore</div>
+			                <div class="media-box-author">
+			                	by Faye Thomas
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-31.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-37.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2001</div>
+			                <div class="media-box-title">Enim ad minim</div>
+			                <div class="media-box-author">
+			                	by Jan Allen
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-37.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-38.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2014</div>
+			                <div class="media-box-title">Ullamco laboris</div>
+			                <div class="media-box-author">
+			                	by Celia Todd
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-38.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-34.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2013</div>
+			                <div class="media-box-title">Nostrud exercitation</div>
+			                <div class="media-box-author">
+			                	by Leigh Ryan
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-34.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>    
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-1.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2004</div>
+			                <div class="media-box-title">Et dolore magna</div>
+			                <div class="media-box-author">
+			                	by Gladys Rhodes
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-1.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-32.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2011</div>
+			                <div class="media-box-title">Ex ea commodo</div>
+			                <div class="media-box-author">
+			                	by Stanley	 Obrien
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-32.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>      
+		        
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-39.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+		                	<div class="media-box-year">2005</div>
+			                <div class="media-box-title">Pinecone</div>
+			                <div class="media-box-author">
+			                	by Philip Becker
+			                </div>
+			                <div class="media-box-view-image"> 
+			                	<a href="#" class="mb-open-popup" data-src="gallery/img-39.jpg">
+			                		<span class="glyphicon glyphicon-plus"></span> View Image
+			                	</a>
+			               	</div>
+		                </div>
+		            </div>
+		        </div>    
+
+		</div> <!-- #grid -->		
+
+	    <!--  ================== END MEDIA BOXES ================== -->
+
+		</div> <!-- #grid-container -->		
+
+	</div>
+	
+	<div class="grid-section" style="border-top: 1px solid #f3f1f1;">
+
+		<div class="headline">
+			<h2>ANOTHER <strong>GRID</strong></h2>
+
+			<p>
+				Have a totally different grid in the same page.
+			</p>
+		</div>
+
+		<div class="content grid-container">
+			
+		<!--  ================== MEDIA BOXES ================== -->
+
+		<div class="filters-container">
+			
+			<div class="media-boxes-search pull-right">
+                <span class="media-boxes-icon fa fa-search"></span>
+                <input type="text" id="search2" placeholder="Search by title">
+                <span class="media-boxes-clear fa fa-close"></span>
+            </div>
+		
+			<ul class="media-boxes-filter" id="filter2">
+			  <li><a class="selected" href="#" data-filter="*">All</a></li>
+			  <li><a href="#" data-filter=".category1">Category 1</a></li>
+			  <li><a href="#" data-filter=".category2">Category 2</a></li>
+			  <li><a href="#" data-filter=".category3">Category 3</a></li>
+			  <li><a href="#" data-filter=".category1, .category2">Category 1 and 2</a></li>
+			</ul>
+
+		</div>
+
+		<div id="grid2">
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text1">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-40.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Dolor sit amet</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text1" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Dolor sit amet</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. At modi pariatur tempora officiis eligendi et vel illo velit quibusdam quo aliquam non placeat, magni corporis, accusantium similique quis eos eum.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text2">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-25.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Psico dell consecteture</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text2" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Psico dell consecteture</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, officiis, delectus? Ea labore nobis, aspernatur beatae, inventore fugiat fugit explicabo qui, amet itaque soluta atque eos earum id temporibus vel.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- --> 
+		        <div class="media-box category3" data-columns="2">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text3">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-33.jpg"></div>
+
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Sed do eiusmod</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text3" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Sed do eiusmod</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero non ducimus iure iste laborum nam eos et, quae ipsam porro magni animi pariatur placeat soluta neque dolorum, cupiditate suscipit. Amet.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1" data-columns="2">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text4">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-39.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Incididunt ut labore</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text4" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Incididunt ut labore</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum nihil officiis velit adipisci reiciendis placeat, doloremque iusto et repellat aut, beatae numquam blanditiis fugiat rerum alias consequuntur facilis cumque? Eveniet.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text5">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-11.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Enim ad minim</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text5" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Enim ad minim</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab sequi incidunt molestiae quia ipsam amet placeat saepe quae voluptates, dolor eligendi quam eius consequatur dignissimos repudiandae tenetur accusantium rem! Voluptas!
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text6">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-31.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Nostrud exercitation</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text6" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Nostrud exercitation</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos praesentium, libero fuga placeat blanditiis asperiores omnis pariatur suscipit facilis quis illum fugiat voluptatem sit, architecto quam commodi necessitatibus cupiditate? Rerum.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text7">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-32.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Ullamco laboris</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text7" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Ullamco laboris</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab labore, cumque officiis assumenda sed quas, consectetur corporis iure, id omnis repudiandae blanditiis harum doloremque sunt consequuntur, tenetur non. Ea, vero.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>    
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text8">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-45.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Ex ea commodo</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text8" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Ex ea commodo</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia natus quo dolorum reprehenderit quaerat facere esse. Corporis amet ipsum, porro voluptates delectus voluptas atque veritatis ipsa, dolor, molestiae quos commodi!
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text9">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-34.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Duis aute irure</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text9" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Duis aute irure</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam quod, neque deserunt, veritatis soluta ratione temporibus quos repudiandae minus mollitia beatae quo odio nobis placeat atque facilis saepe. Debitis, dolore.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>      
+		        
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image mb-open-popup" data-type="inline" data-src="#text10">
+		                <div data-width="240" data-height="160" data-thumbnail="gallery/thumbnails/thumb-35.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<div class="media-box-title">Dolor in reprehenderit</div>
+	                      	<div class="media-box-date">December 10, 2013</div>
+		                </div>
+
+		                <div id="text10" class="white-popup mfp-hide">
+		                	<div class="media-box-title">Dolor in reprehenderit</div>
+		                	<div class="media-box-date">December 10, 2013</div>
+		                	<div class="media-box-text">
+	                    		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate fugiat distinctio ut culpa at pariatur laudantium, iure magnam id, eaque, dolorum molestias necessitatibus. Harum, quae! Rerum sequi minus provident nobis.
+	                		</div>
+	                		<div class="media-box-more"> <a href="#">Read More</a> </div>
+		                </div>
+		            </div>
+		        </div>    
+
+		</div> <!-- #grid -->		
+
+		<!--  ================== END MEDIA BOXES ================== -->
+
+		</div> <!-- #grid-container -->		
+	
+	</div>
+	
+	<div class="grid-section" style="border-top: 1px solid #f3f1f1;">
+
+		<div class="headline">
+			<h2>ONE <strong>MORE</strong></h2>
+
+			<p>
+				You can have as many as you want.
+			</p>
+		</div>
+
+		<div class="content grid-container">
+
+		<!--  ================== MEDIA BOXES ================== -->
+		
+		<div class="filters-container">
+
+			<div class="media-boxes-drop-down" id="sort3">
+				<div class="media-boxes-drop-down-header">
+				</div>
+				<ul class="media-boxes-drop-down-menu">
+					<li><a href="#" data-sort-by="original-order" class="selected">Original Order</a></li>
+					<li><a href="#" data-sort-by="title" data-sort-toggle="true">Sort by Title</a></li>
+					<li><a href="#" data-sort-by="year" data-sort-toggle="true">Sort by Year</a></li>
+					<li><a href="#" data-sort-by="author" data-sort-toggle="true">Sort by Author</a></li>
+				</ul>
+			</div>
+			
+			<div class="media-boxes-drop-down">
+				<div class="media-boxes-drop-down-header">
+				</div>
+				<ul class="media-boxes-drop-down-menu" id="filter3">
+				  <li><a class="selected" href="#" data-filter="*">All</a></li>
+				  <li><a href="#" data-filter=".category1">Category 1</a></li>
+				  <li><a href="#" data-filter=".category2">Category 2</a></li>
+				  <li><a href="#" data-filter=".category3">Category 3</a></li>
+				  <li><a href="#" data-filter=".category1, .category2">Category 1 and 2</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<div id="grid3">
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-15.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-15.jpg" data-title="Dolor sit amet"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2008</div>
+		                <div class="media-box-title">Dolor sit amet</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Brand Philander
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-14.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-14.jpg" data-title="Psico dell consecteture"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2010</div>
+		                <div class="media-box-title">Psico dell consecteture</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Isadore Lynton
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3" >
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-15.jpg"></div>
+
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-15.jpg" data-title="Sed do eiusmod"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2006</div>
+		                <div class="media-box-title">Sed do eiusmod</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Damon Hart
+	                </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-16.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-16.jpg" data-title="Incididunt ut labore"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2007</div>
+		                <div class="media-box-title">Incididunt ut labore</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Winifred May
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-17.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-17.jpg" data-title="Enim ad minim"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2009</div>
+		                <div class="media-box-title">Enim ad minim</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Faye Thomas
+	                </div>
+		        </div>
+		      
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-18.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-18.jpg" data-title="Et dolore magna"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2001</div>
+		                <div class="media-box-title">Et dolore magna</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Jan Allen
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-19.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-19.jpg" data-title="Nostrud exercitation"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2014</div>
+		                <div class="media-box-title">Nostrud exercitation</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Celia Todd
+	                </div>
+		        </div>    
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-20.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-20.jpg" data-title="Ullamco laboris"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2013</div>
+		                <div class="media-box-title">Ullamco laboris</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Leigh Ryan
+	                </div>
+		        </div>
+
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-21.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-21.jpg" data-title="Ex ea commodo"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2004</div>
+		                <div class="media-box-title">Ex ea commodo</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Gladys Rhodes
+	                </div>
+		        </div>      
+		        
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category1">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-24.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-24.jpg" data-title="Nisi ut aliquip"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2011</div>
+		                <div class="media-box-title">Nisi ut aliquip</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Stanley	 Obrien
+	                </div>
+		        </div>    
+		        
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category2">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-23.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-23.jpg" data-title="Duis aute irure"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2005</div>
+		                <div class="media-box-title">Duis aute irure</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Philip Becker
+	                </div>
+		        </div>      
+		                       		        
+		<!-- -------------------------- BOX MARKUP -------------------------- -->      
+		        <div class="media-box category3">
+		            <div class="media-box-image">
+		                <div data-width="240" data-height="161" data-thumbnail="gallery/thumbnails/thumb-24.jpg"></div>
+		                
+		                <div class="thumbnail-overlay">
+	                      	<i class="fa fa-plus mb-open-popup" data-src="gallery/img-24.jpg" data-title="Dolor in reprehenderit"></i>
+	              			<a href="#"><i class="fa fa-link"></i></a>
+		                </div>
+		            </div>
+
+		            <div class="media-box-content">
+		            	<div class="media-box-year">2007</div>
+		                <div class="media-box-title">Dolor in reprehenderit</div>
+		            </div>
+
+	                <div class="media-box-footer">
+	                	by Joann Keller
+	                </div>
+		        </div>    
+
+		</div> <!-- #grid -->		
+
+	    <!--  ================== END MEDIA BOXES ================== -->
+
+		</div> <!-- #grid-container -->		
+
+	</div>
+
+	<div class="section">
+		<div class="content">
+
+			<div class="headline">
+				<h2>Main Features</h2>
+
+				<p>
+					These are just few main features of the Media Boxes.
+				</p>
+			</div>
+			
+			<div class="features-container">
+
+				<div class="row">
+  					<div class="col-sm-4">
+						<div class="feature-text">
+							<div class="feature-icon">
+								<i class="fa fa-cog"></i>		
+							</div>
+							<h4>Fully Customizable</h4>
+							<p>You can adapt the plugin to your needs. Make any combination that you can think with images, videos, sounds, iframes, text, HTML, etc.</p>
+						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-arrows"></i>
+  							</div>
+  							<h4>Responsive Design</h4>
+  							<p>Put the plugin in any page and the grid will automatically adapt to its container taking care of keeping the right proportions.</p>
+  						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-tablet"></i>
+  							</div>
+							<h4>For Any Resolution</h4>
+							<p>You can define the grid layout (the number of columns or the width) for phones, tablets, desktops and all kind of resolutions.</p>
+						</div>
+  					</div>
+
+  				</div>
+
+  				<div class="row">	
+				
+					<div class="col-sm-4">
+						<div class="feature-text">
+							<div class="feature-icon">
+								<i class="fa fa-repeat"></i>
+							</div>
+  							<h4>Stop waiting for all thumbnails to load</h4>
+  							<p>If you specify the ratio of the thumbnails the plugin will show you the layout and the content without any delay.</p>
+  						</div>
+  					</div>	
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-filter"></i>
+  							</div>
+							<h4>Powerful filter system</h4>
+							<p>You can combine multiple filtering, sorting and searching and even specify your own HTML markup.</p>
+						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-bolt"></i>
+  							</div>
+  							<h4>Super fast grid</h4>
+  							<p>The plugin is using Isotope v2 which is one of the fastest and powerful grid systems out there, using the best browser features when available.</p>
+  						</div>
+  					</div>
+
+				</div>
+				
+				<div class="row">
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-tachometer"></i>
+  							</div>
+							<h4>Overlay Effect</h4>
+							<p>Several overlay effects are using CSS3 transitions and GPU acceleration in order to give you the best performance available.</p>
+						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-expand"></i>
+  							</div>
+  							<h4>Define the Ratio</h4>
+  							<p>You can specify the ratio of the thumbnails and the plugin will cut and center them for you with CSS techniques.
+  						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-file-text"></i>
+  							</div>
+  							<h4>Documentation</h4>
+  							<p>Step-by-step documentation from the simplest thing to the most advanced stuff, you can read it for free before you buy <a href="../documentation/index.html">here</a>.</p>
+  						</div>
+  					</div>
+
+  				</div>
+
+  				<div class="row">	
+				
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-desktop"></i>
+  							</div>
+							<h4>Cross-browser support</h4>
+							<p>Tested on IE 8+, Chrome, Mozilla, Safari, Opera and Mobile Browsers.</p>
+						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-life-ring"></i>
+  							</div>
+  							<h4>Free support</h4>
+  							<p>You can ask any question regarding the plugin before or after you buy and also get free updates</p>
+  						</div>
+  					</div>
+
+  					<div class="col-sm-4">
+  						<div class="feature-text">
+  							<div class="feature-icon">
+  								<i class="fa fa-link"></i>
+  							</div>
+  							<h4>Deep linking</h4>
+  							<p>Directly link to the popup so you can share the popup content with your friends.</p>
+  						</div>
+  					</div>
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-section footer">
+		<div class="content">
+		    © 2015 Media Boxes Portfolio - Responsive Grid. Plugin made by <a href="http://codecanyon.net/user/castlecode">castlecode</a>
+		</div>
+	</div>
+
+	<div class="fixed fancybox-compensate-for-scrollbar">
+		<div class="to-top">
+			<i class="glyphicon glyphicon-chevron-up"></i>
+		</div>
+	</div>
+
+	<!-- jQuery 1.8+ -->
+	<script src="../plugin/components/jQuery/jquery-3.6.0.min.js"></script>
+	
+	<!-- Media Boxes JS files -->
+	<script src="../plugin/components/Isotope/jquery.isotope.min.js"></script>
+	<script src="../plugin/components/imagesLoaded/jquery.imagesLoaded.min.js"></script>
+	<script src="../plugin/components/Transit/jquery.transit.min.js"></script>
+	<script src="../plugin/components/jQuery Easing/jquery.easing.js"></script>
+	<script src="../plugin/components/jQuery Visible/jquery.visible.min.js"></script>
+	<script src="../plugin/components/Modernizr/modernizr.custom.min.js"></script>
+	<script src="../plugin/components/Fancybox/jquery.fancybox.min.js"></script> <!-- only if you use Fancybox -->
+	<script src="../plugin/js/jquery.mediaBoxes.dropdown.js"></script>
+	<script src="../plugin/js/jquery.mediaBoxes.js"></script>
+
+	<script>
+
+	    $('#grid').mediaBoxes({
+	    	filterContainer: '#filter',
+	    	search: '#search',
+	    	sortContainer: '#sort',
+	        getSortData: {
+	          title: '.media-box-title',
+	          year: '.media-box-year',
+	          author: '.media-box-author'
+	        }, 
+	    	overlayEffect: 'reveal-top-100%',
+	    	boxesToLoadStart: 10,
+	        boxesToLoad: 8,
+	    }); 
+
+	    $('#grid2').mediaBoxes({
+	    	filterContainer: '#filter2',
+	    	search: '#search2',
+	    	overlayEffect: 'reveal-bottom',
+	    	boxesToLoadStart: 10,
+	        boxesToLoad: 8,
+	    }); 
+
+	    $('#grid3').mediaBoxes({
+	    	filterContainer: '#filter3',
+	    	sortContainer: '#sort3',
+	    	getSortData: {
+	          title: '.media-box-title',
+	          year: '.media-box-year parseInt',
+	          author: '.media-box-author'
+	        },
+	    	horizontalSpaceBetweenBoxes: 20,
+        	verticalSpaceBetweenBoxes: 20,
+	    }); 
+
+	</script>
+
+
+	<!-- Bootstrap JS file -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="js/demo.js"></script>
+
+
+</body>
+</html>

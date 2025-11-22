@@ -1,0 +1,1 @@
+<?php require_once('views/catalogue-attribute/catalogue-attribute.php');

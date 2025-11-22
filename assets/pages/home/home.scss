@@ -1,0 +1,48 @@
+@import "../../app";
+
+/*Owl Carousel v2.3.4*/
+@import "../../common-sass/owl.carousel/src/scss/owl.carousel";
+@import "../../common-sass/owl.carousel/src/scss/owl.theme.default";
+/*Media Boxes*/
+@import "../../common-sass/media-boxes/plugin/components/Magnific Popup/magnific-popup";
+@import "../../common-sass/media-boxes/plugin/css/mediaBoxes";
+
+#homePage{
+	#main_banner{
+		position: relative;
+		.carousel{
+			&-indicators{
+				margin-bottom: 2.5rem;
+			}
+			&-inner{
+				.carousel-caption{
+					padding-bottom: 3.25rem;
+				}
+			}
+		}
+		.smooth-scroll{
+			z-index: 1;
+    		bottom: -10px;
+		}
+	}
+	.she-header{background-color: blue;}
+
+	#carouselHome{
+		.carousel-item{
+			height: 100vh;
+			h5{
+				text-shadow: 1px 2px 1px #000;
+			}
+			img{
+				object-fit: cover;
+			}
+		}
+	}
+	#custom-cards{
+		.card-cover {
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+		}
+	}
+}

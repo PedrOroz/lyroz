@@ -1,0 +1,7 @@
+{
+    "require": {
+        "dompdf/dompdf": "^2.0",
+        "ezyang/htmlpurifier": "^4.17",
+        "tecnickcom/tcpdf": "^6.7"
+    }
+}

@@ -1,0 +1,1 @@
+<?php require_once('views/my-profile/my-profile.php');
